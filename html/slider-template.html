@@ -1,5 +1,5 @@
 <div>
-	<ul ng-style="{top:-i+'px'}">
+	<ul>
 		<li ng-repeat="item in list">
 			<img ng-src="{{item.imageUrl}}" alt="">
 		</li>
@@ -7,4 +7,9 @@
 			<img ng-src="{{cloneItem.imageUrl}}" alt="">
 		</li>
 	</ul>
+	<div class="navigation" data-navigation="">
+		<a class="icon-backward" ng-click="previousPage()">上一页</a>
+		<span>Use keyboard arrows to navigate</span>
+		<a class="icon-forward" ng-click="nextPage()">下一页</a>
+	</div>
 </div>

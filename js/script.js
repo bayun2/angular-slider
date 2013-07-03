@@ -6,43 +6,36 @@
  */
 
 var app = angular.module("project",[])
-				 .directive("slider",function($timeout){
+				 .directive("slider",function($timeout,$http){
 				 	return {
 				 		restrict:"E",
 				 		replace:true,
 				 		scope:{},
 				 		templateUrl:'html/slider-template.html',
 				 		link:function($scope, $element, $attrs) {
-				 			data = {
-				 				list:[
-				 					{'imageUrl':'images/1.jpg'},
-				 					{'imageUrl':'images/2.jpg'},
-				 					{'imageUrl':'images/3.jpg'},
-				 					{'imageUrl':'images/4.jpg'}
-				 				]
-				 			};
-				 			$scope.list = data.list;
-				 			$scope.cloneItem = data.list[0];
-				 			var slider = $element,
-				 				itemHeight = $attrs.sliderItemHeight,
-				 				interval = $attrs.sliderInterval,
-				 				length = $scope.list.length,
-				 				totalHeight = itemHeight * length;
-				 			$scope.i = 0;
-				 			function runAuto() {
-				 				if ($scope.i < totalHeight) {
-									$scope.i ++;
-									if ($scope.i % itemHeight == 0) {	
-										$timeout(runAuto,2000);
-									} else {
-										$timeout(runAuto,interval);
-									}				 
-								} else {
-									$scope.i = 0;
-									$timeout(runAuto,2000);
-								}
-				 			}
-				 			runAuto();
+				 			$http.get('data/json.js').success(function(data) {
+				 				$scope.list = data.list;
+					 			$scope.cloneItem = data.list[0];
+					 			var slider = $element,
+					 				itemHeight = $attrs.sliderItemHeight,
+					 				interval = parseInt($attrs.sliderInterval),
+					 				sleep = parseInt($attrs.sliderSleep),
+					 				length = $scope.list.length,
+					 				totalHeight = itemHeight * length,
+					 				crtItem = 0;
+					 			function runAuto() {
+					 				$("ul",$element).animate({"top":-crtItem*itemHeight},interval,function() {
+					 					if (crtItem < length) {
+					 						crtItem++;
+					 					} else {
+					 						crtItem = 0;
+					 						$(this).css("top","0px");
+					 					}
+					 					$timeout(runAuto,sleep);
+					 				})
+					 			}
+					 			runAuto();
+				 			});	
 				 		}
 				 	}
 				 });
