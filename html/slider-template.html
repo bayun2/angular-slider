@@ -1,10 +1,10 @@
 <div>
 	<ul ng-style="{top:-i+'px'}">
 		<li ng-repeat="item in list">
-			<img src="{{item.imageUrl}}" alt="">
+			<img ng-src="{{item.imageUrl}}" alt="">
 		</li>
 		<li class="clone">
-			<img src="{{cloneItem.imageUrl}}" alt="">
+			<img ng-src="{{cloneItem.imageUrl}}" alt="">
 		</li>
 	</ul>
 </div>

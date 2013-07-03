@@ -12,7 +12,7 @@ var app = angular.module("project",[])
 				 		replace:true,
 				 		scope:{},
 				 		templateUrl:'html/slider-template.html',
-				 		link:function($scope, $element, $attrs, $timeout) {
+				 		link:function($scope, $element, $attrs) {
 				 			data = {
 				 				list:[
 				 					{'imageUrl':'images/1.jpg'},

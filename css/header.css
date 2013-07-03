@@ -24,6 +24,7 @@ a,button{cursor:pointer;}
 a{text-decoration:none;color:#333;outline:none;}
 body{background-color:#fff;}
 
-.m-slider{height:600px;width:1000px;padding: 10px;border:1px solid red;display: block;overflow: hidden;}
+.m-slider{position:relative;height:600px;width:1000px;padding: 10px;border:1px solid red;display: block;overflow: hidden;}
+.m-slider ul{position: absolute;}
 
 
