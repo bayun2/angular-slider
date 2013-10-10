@@ -1,15 +1,16 @@
 <div>
-	<ul>
-		<li ng-repeat="item in list">
-			<img ng-src="{{item.imageUrl}}" alt="">
-		</li>
-		<li class="clone">
-			<img ng-src="{{cloneItem.imageUrl}}" alt="">
-		</li>
-	</ul>
-	<div class="navigation" data-navigation="">
-		<a class="icon-backward" ng-click="previousPage()">上一页</a>
-		<span>Use keyboard arrows to navigate</span>
-		<a class="icon-forward" ng-click="nextPage()">下一页</a>
+	<div class="m-show">
+		<ul>
+			<li ng-repeat="item in list">
+				<img ng-src="{{item.imageUrl}}" alt="">
+			</li>
+			<li class="clone">
+				<img ng-src="{{cloneItem.imageUrl}}" alt="">
+			</li>
+		</ul>
+	</div>	
+	<div class="m-navigation" ng-show="hasNavigation">
+		<a class="icon-backward icon" ng-click="previousPage()">上一页</a>
+		<a class="icon-forward icon" ng-click="nextPage()">下一页</a>
 	</div>
 </div>

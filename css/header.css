@@ -24,7 +24,11 @@ a,button{cursor:pointer;}
 a{text-decoration:none;color:#333;outline:none;}
 body{background-color:#fff;}
 
-.m-slider{position:relative;height:600px;width:1000px;padding: 10px;border:1px solid red;display: block;overflow: hidden;}
-.m-slider ul{position: absolute;}
+.m-slider {position: relative;}
+.m-slider .m-show{position:relative;height:600px;width:1000px;padding: 10px;border:1px solid red;display: block;overflow: hidden;margin-top: 20px;}
+.m-slider .m-show ul{position: absolute;}
+.m-navigation .icon{position: absolute;}
+.m-navigation .icon-backward{top:-20px;}
+.m-navigation .icon-forward{bottom:-20px;}
 
 
